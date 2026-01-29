@@ -149,3 +149,14 @@ EMAIL_HOST_USER = 'grownbyaigp@gmail.com'
 EMAIL_HOST_PASSWORD = 'agblkeblhtorwrnv'
 
 # DEFAULT_FROM_EMAIL = 'Nurturing Way <yourgmail@gmail.com>'
+
+#New one 
+import dj_database_url
+import os
+
+DATABASES = {
+    'default': dj_database_url.config(
+        default=os.environ.get('DATABASE_URL')
+    )
+}
+
