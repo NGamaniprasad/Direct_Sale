@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="{% static 'logo.png' %}">
+    <title>Videos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 20px; /* Space below the heading */
+        }
+
+        .video-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px; /* Space between video cards */
+            margin-top: 20px;
+        }
+
+        .video-card {
+            background: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 10px;
+            text-align: center;
+            max-width: 320px; /* Limit the width of each video card */
+            transition: transform 0.2s; /* Smooth scaling effect */
+        }
+
+        .video-card:hover {
+            transform: scale(1.05); /* Scale up on hover */
+        }
+
+        video {
+            max-width: 100%; /* Responsive video */
+            border-radius: 5px; /* Rounded corners for videos */
+        }
+
+        h3 {
+            margin: 10px 0; /* Space above and below the title */
+            color: #555; /* Darker gray for titles */
+        }
+
+        .delete-button {
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background-color 0.3s;
+        }
+
+        .delete-button:hover {
+            background-color: #c0392b;
+        }
+
+        .add-button, .go-back-button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            text-decoration: none; /* Remove underline */
+            display: inline-block; /* Make it behave like a button */
+            margin-top: 20px; /* Space above the button */
+            transition: background-color 0.3s; /* Smooth transition */
+        }
+
+        .add-button:hover, .go-back-button:hover {
+            background-color: #45a049; /* Darker green on hover */
+        }
+    </style>
+</head>
+<body>
+<h1>Uploaded Videos</h1>
+<div class="video-container">
+    {% for video in videos %}
+    <div class="video-card">
+        <h3>{{ video.title2 }}</h3>
+        <video controls>
+            <source src="{{ video.video.url }}" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <form method="post" action="{% url 'delete_video' video.id %}">
+            {% csrf_token %}
+            <button type="submit" class="delete-button">Delete</button>
+        </form>
+    </div>
+    {% endfor %}
+</div>
+
+<!-- Add Button -->
+<a href="{% url 'upload_video' %}" class="add-button">Add</a>
+
+<!-- Go Back Button -->
+<a href="{% url 'Media' %}" class="go-back-button">Go Back</a>
+</body>
+</html>

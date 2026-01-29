@@ -1,0 +1,493 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MyDirectSale | Direct Sale Business</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Hamburger -->
+    <div class="menu-toggle" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <style>
+        /* ================= RESET ================= */
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:"Segoe UI",sans-serif;
+        }
+        body{
+            background:#f4f6fb;
+            color:#333;
+        }
+        a{text-decoration:none}
+
+        /* ================= NAVBAR ================= */
+        .navbar{
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            padding:18px 8%;
+            background:#fff;
+            box-shadow:0 4px 20px rgba(0,0,0,.05);
+            position:sticky;
+            top:0;
+            z-index:100;
+        }
+        .logo{
+            font-size:24px;
+            font-weight:700;
+            color:#0066ff;
+        }
+        .navbar nav a{
+            margin-left:20px;
+            color:#333;
+            font-weight:500;
+        }
+        .btn{
+            background:#0066ff;
+            color:#fff;
+            padding:8px 18px;
+            border-radius:6px;
+        }
+        .btn-outline{
+            border:1px solid #0066ff;
+            color:#0066ff;
+            padding:8px 18px;
+            border-radius:6px;
+        }
+        .navbar a:hover{opacity:.8}
+
+        /* ================= HERO ================= */
+        .hero{
+            display:flex;
+            align-items:center;
+            justify-content:space-between;
+            padding:90px 8%;
+            background:linear-gradient(120deg,#0066ff,#00c6ff);
+            color:#fff;
+            flex-wrap:wrap;
+        }
+        .hero-text{max-width:550px}
+        .hero-text h1{
+            font-size:48px;
+            margin-bottom:20px;
+        }
+        .hero-text p{
+            font-size:18px;
+            margin-bottom:30px;
+            opacity:.95;
+        }
+        .btn-primary{
+            background:#28a745;
+            color:#fff;
+            padding:14px 28px;
+            border-radius:8px;
+            margin-right:15px;
+            display:inline-block;
+            font-weight:600;
+        }
+        .btn-secondary{
+            color:#fff;
+            font-weight:500;
+        }
+        .btn-primary:hover{background:#218838}
+
+        /* ================= TRUST ================= */
+        .trust{
+            display:flex;
+            justify-content:space-around;
+            background:#fff;
+            padding:50px 8%;
+            text-align:center;
+        }
+        .trust h2{
+            font-size:36px;
+            color:#0066ff;
+        }
+        .trust p{color:#666}
+
+        /* ================= ABOUT ================= */
+        .about{
+            padding:70px 8%;
+            text-align:center;
+        }
+        .about h2{
+            font-size:36px;
+            margin-bottom:15px;
+        }
+        .about p{
+            max-width:850px;
+            margin:auto;
+            color:#555;
+            line-height:1.7;
+        }
+
+        /* ================= FEATURES ================= */
+        .features{
+            padding:70px 8%;
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+            gap:25px;
+        }
+        .feature-card{
+            background:#fff;
+            padding:35px;
+            border-radius:14px;
+            box-shadow:0 8px 30px rgba(0,0,0,.05);
+            transition:.3s;
+        }
+        .feature-card:hover{
+            transform:translateY(-6px);
+        }
+        .feature-card h3{
+            color:#0066ff;
+            margin-bottom:10px;
+        }
+
+        /* ================= CANDIDATES ================= */
+        .candidates{
+            background:#fff;
+            padding:80px 8%;
+            text-align:center;
+        }
+        .candidates h2{
+            font-size:36px;
+            margin-bottom:10px;
+        }
+        .candidates p{
+            color:#666;
+            margin-bottom:45px;
+        }
+        .candidate-grid{
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+            gap:25px;
+            margin-bottom:45px;
+        }
+        .candidate-card{
+            background:#f4f6fb;
+            padding:35px;
+            border-radius:14px;
+            transition:.3s;
+        }
+        .candidate-card:hover{
+            background:#e9f1ff;
+        }
+
+        /* ================= HOW ================= */
+        .how{
+            padding:70px 8%;
+            text-align:center;
+        }
+        .how h2{font-size:36px}
+        .steps{
+            display:flex;
+            justify-content:center;
+            gap:30px;
+            margin-top:40px;
+            flex-wrap:wrap;
+        }
+        .step{
+            background:#fff;
+            padding:25px;
+            width:160px;
+            border-radius:14px;
+            box-shadow:0 6px 20px rgba(0,0,0,.05);
+        }
+        .step span{
+            display:inline-block;
+            width:45px;
+            height:45px;
+            background:#28a745;
+            color:#fff;
+            border-radius:50%;
+            line-height:45px;
+            font-weight:700;
+            margin-bottom:10px;
+        }
+
+        /* ================= CTA ================= */
+        .cta{
+            background:linear-gradient(120deg,#28a745,#6ddf8e);
+            color:#fff;
+            text-align:center;
+            padding:70px 20px;
+        }
+        .cta h2{
+            font-size:38px;
+            margin-bottom:10px;
+        }
+
+        /* ================= FOOTER ================= */
+        .footer{
+            background:#0f172a;
+            color:#ccc;
+        }
+        .footer-container{
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+            gap:35px;
+            padding:60px 8%;
+        }
+        .footer-box h3,
+        .footer-box h4{
+            color:#fff;
+            margin-bottom:12px;
+        }
+        .footer-box a{
+            display:block;
+            margin-top:8px;
+            color:#ccc;
+        }
+        .footer-box a:hover{color:#00c6ff}
+        .footer-bottom{
+            background:#020617;
+            text-align:center;
+            padding:15px;
+            font-size:14px;
+        }
+            /* i wass added */
+            /* ================= RESPONSIVE NAVBAR FIX ================= */
+        @media (max-width: 900px) {
+            .navbar {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 15px 5%;
+            }
+
+            .navbar nav {
+                width: 100%;
+                display: flex;
+                flex-wrap: wrap;
+                gap: 10px;
+                margin-top: 12px;
+            }
+
+            .navbar nav a {
+                margin-left: 0;
+                padding: 8px 14px;
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .navbar nav {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .navbar nav a {
+                width: 100%;
+                text-align: center;
+            }
+        }
+        /* ===== NAVBAR 3-LINE HORIZONTAL FIX ===== */
+        @media (max-width: 900px) {
+            .navbar nav {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr); /* 3 items per row */
+                gap: 10px;
+                width: 100%;
+                margin-top: 12px;
+            }
+
+            .navbar nav a {
+                margin-left: 0;
+                text-align: center;
+                padding: 8px 10px;
+                font-size: 14px;
+                white-space: nowrap;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .navbar nav {
+                grid-template-columns: repeat(2, 1fr); /* 2 per row on very small screens */
+            }
+        }
+        /* ===== HAMBURGER MENU ===== */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .menu-toggle span {
+            width: 26px;
+            height: 3px;
+            background: #333;
+            margin: 4px 0;
+            border-radius: 2px;
+        }
+
+        /* Mobile */
+        @media (max-width: 900px) {
+            .menu-toggle {
+                display: flex;
+            }
+
+            .navbar nav {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: #fff;
+                flex-direction: column;
+                align-items: center;
+                box-shadow: 0 10px 20px rgba(0,0,0,.1);
+                padding: 20px 0;
+            }
+
+            .navbar nav a {
+                margin: 12px 0;
+                font-size: 16px;
+            }
+
+            .navbar nav.active {
+                display: flex;
+            }
+        }
+
+    </style>
+</head>
+<script>
+    function toggleMenu() {
+        document.getElementById("nav-menu").classList.toggle("active");
+    }
+</script>
+
+<body>
+
+<!-- NAVBAR -->
+<header class="navbar">
+    <div class="logo">MyDirectSale</div>
+    <nav id="nav-menu">
+
+        <a href="{% url 'company' %}">Company</a>
+        <a href="{% url 'products' %}">Products</a>
+
+        <a href="{% url 'send_email' %}">Contact</a>
+        <a href="{% url 'area' %}" class="btn">Media</a>
+        <a href="{% url 'signup' %}" class="btn">Register</a>
+    </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-text">
+        <h1>Build Your Direct Sale Business</h1>
+        <p>
+            A powerful platform helping candidates earn, grow,
+            and build a strong financial future.
+        </p>
+        <a href="{% url 'signup' %}" class="btn-primary">Register Now</a>
+        <a href="{% url 'plan' %}" class="btn-secondary">View Plan</a>
+    </div>
+</section>
+
+<!-- TRUST -->
+<section class="trust">
+    <div><h2>15K+</h2>
+        <p>Candidates</p></div>
+    <div><h2>₹8Cr+</h2>
+        <p>Paid Commissions</p></div>
+    <div><h2>150+</h2>
+        <p>Products</p></div>
+</section>
+
+<!-- ABOUT -->
+<section class="about">
+    <h2>Why Choose Us?</h2>
+    <p>
+        Transparent income, high-quality products, strong support
+        system, and a proven direct sale business model.
+    </p>
+</section>
+
+<!-- FEATURES -->
+<section class="features">
+    <div class="feature-card"><h3>High Commission</h3>
+        <p>Best-in-class commission structure.</p></div>
+    <div class="feature-card"><h3>Fast Payouts</h3>
+        <p>Weekly & monthly bank transfers.</p></div>
+    <div class="feature-card"><h3>Training</h3>
+        <p>Step-by-step success guidance.</p></div>
+    <div class="feature-card"><h3>Secure System</h3>
+        <p>Reliable & transparent platform.</p></div>
+</section>
+
+<!-- CANDIDATES -->
+<section class="candidates">
+    <h2>Opportunity for Everyone</h2>
+    <p>Students • Professionals • Entrepreneurs</p>
+    <div class="candidate-grid">
+        <div class="candidate-card"><h3>Students</h3>
+            <p>Earn while you learn.</p></div>
+        <div class="candidate-card"><h3>Professionals</h3>
+            <p>Create extra income.</p></div>
+        <div class="candidate-card"><h3>Entrepreneurs</h3>
+            <p>Scale your earnings.</p></div>
+    </div>
+    <a href="{% url 'signup' %}" class="btn-primary">Join Now</a>
+</section>
+
+<!-- HOW -->
+<section class="how">
+    <h2>How It Works</h2>
+    <div class="steps">
+        <div class="step"><span>1</span>
+            <p>Register</p></div>
+        <div class="step"><span>2</span>
+            <p>Choose Products</p></div>
+        <div class="step"><span>3</span>
+            <p>Share</p></div>
+        <div class="step"><span>4</span>
+            <p>Earn</p></div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+    <h2>Start Your Journey Today</h2>
+    <p>No experience required — we guide you.</p>
+
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-box">
+            <h3>MyDirectSale</h3>
+            <p>Trusted direct sale platform.</p>
+        </div>
+        <div class="footer-box">
+            <h4>Quick Links</h4>
+            <a href="#">Home</a>
+            <a href="{% url 'products' %}">Products</a>
+            <a href="{% url 'plan' %}">Plan</a>
+        </div>
+        <div class="footer-box">
+            <h4>Support</h4>
+
+            <a href="{% url 'terms' %}">Privacy Policy & Terms</a>
+        </div>
+        <div class="footer-box">
+            <h4>Contact</h4>
+            <p>support@mydirectsale.com</p>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        © 2026 MyDirectSale | All Rights Reserved | Gamani prasad |
+    </div>
+</footer>
+
+</body>
+</html>

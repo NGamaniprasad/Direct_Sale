@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Business Plan | Direct Sale System</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon" type="image/png" href="{% static 'logo.png' %}">
+    <style>
+        /* =========================
+           GLOBAL RESET
+        ========================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: #f4f6f9;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3 {
+            font-weight: 600;
+        }
+
+        /* =========================
+           HEADER
+        ========================== */
+        .header {
+            background: linear-gradient(135deg, #1c1c1c, #2c5364);
+            color: #fff;
+            padding: 70px 20px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 42px;
+            margin-bottom: 12px;
+        }
+
+        .header p {
+            max-width: 800px;
+            margin: auto;
+            font-size: 16px;
+            opacity: 0.9;
+        }
+
+        /* =========================
+           CONTAINER
+        ========================== */
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 60px 25px;
+        }
+
+        /* =========================
+           PLAN CARD
+        ========================== */
+        .plan-card {
+            background: #fff;
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 40px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+            transition: 0.3s;
+        }
+
+        .plan-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 25px 45px rgba(0,0,0,0.12);
+        }
+
+        .plan-title {
+            font-size: 26px;
+            color: #2c5364;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .plan-title span {
+            font-size: 30px;
+        }
+
+        .plan-desc {
+            font-size: 15px;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        /* =========================
+           LIST STYLE
+        ========================== */
+        ul.plan-list {
+            list-style: none;
+            margin-top: 15px;
+        }
+
+        ul.plan-list li {
+            padding-left: 25px;
+            position: relative;
+            margin-bottom: 12px;
+            font-size: 14px;
+        }
+
+        ul.plan-list li::before {
+            content: "✔";
+            position: absolute;
+            left: 0;
+            color: #2c5364;
+            font-weight: bold;
+        }
+
+        /* =========================
+           GRID
+        ========================== */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        /* =========================
+           HIGHLIGHT BOX
+        ========================== */
+        .highlight {
+            background: linear-gradient(135deg, #203a43, #2c5364);
+            color: white;
+            padding: 25px;
+            border-radius: 14px;
+        }
+
+        .highlight h3 {
+            font-size: 22px;
+            margin-bottom: 12px;
+        }
+
+        .highlight p {
+            font-size: 14px;
+            opacity: 0.95;
+        }
+
+        /* =========================
+           RESPONSIVE
+        ========================== */
+        @media(max-width: 768px) {
+            .header h1 {
+                font-size: 30px;
+            }
+
+            .container {
+                padding: 40px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<section class="header">
+    <h1>Business Working Plan</h1>
+    <p>
+        Our Direct Sale Business system is designed for growth, discipline, and consistent income.
+        Below is the complete working structure including training, daily office activities,
+        sales process, and payout system.
+    </p>
+</section>
+
+<!-- CONTENT -->
+<section class="container">
+
+    <!-- TRAINING -->
+    <div class="plan-card">
+        <div class="plan-title"><span>🎓</span> Training System</div>
+        <div class="plan-desc">
+            We provide structured and professional training to every associate to ensure long-term success.
+        </div>
+        <ul class="plan-list">
+            <li>Basic orientation training for new joiners</li>
+            <li>Product knowledge and presentation skills</li>
+            <li>Sales and communication training</li>
+            <li>Team building and leadership development</li>
+            <li>offline training sessions</li>
+            <li>Weekly performance improvement guidance</li>
+        </ul>
+    </div>
+
+    <!-- ID & PASSWORD -->
+    <div class="plan-card">
+        <div class="plan-title"><span>🔐</span> ID & Password System</div>
+        <div class="plan-desc">
+            Every registered member receives a secure personal account.
+        </div>
+        <ul class="plan-list">
+            <li>Unique ID generated after registration</li>
+            <li>Secure password protection</li>
+            <li>Access to personal dashboard</li>
+            <li>Track sales, income, and team growth</li>
+            <li>Password reset and security verification</li>
+        </ul>
+    </div>
+
+    <!-- DAILY OFFICE -->
+    <div class="plan-card">
+        <div class="plan-title"><span>🏢</span> Daily Office System</div>
+        <div class="plan-desc">
+            Daily office activities ensure discipline, motivation, and performance tracking.
+        </div>
+        <ul class="plan-list">
+            <li>Fixed office timings</li>
+            <li>Daily attendance system</li>
+            <li>Task assignment and follow-ups</li>
+            <li>Sales reporting</li>
+            <li>Mentor support for new members</li>
+        </ul>
+    </div>
+
+    <!-- DAILY MEETINGS -->
+    <div class="plan-card">
+        <div class="plan-title"><span>📅</span> Daily Meetings</div>
+        <div class="plan-desc">
+            Meetings are the backbone of team coordination and motivation.
+        </div>
+        <ul class="plan-list">
+            <li>Morning motivation meeting</li>
+            <li>Product discussion sessions</li>
+            <li>Sales strategy planning</li>
+            <li>Problem solving & Q&A</li>
+            <li>Recognition of top performers</li>
+        </ul>
+    </div>
+
+    <!-- SALES SYSTEM -->
+    <div class="plan-card">
+        <div class="plan-title"><span>📈</span> Sales System</div>
+        <div class="plan-desc">
+            Our sales structure is simple, transparent, and scalable.
+        </div>
+        <ul class="plan-list">
+            <li>Direct product selling</li>
+            <li>Team-based sales growth</li>
+            <li>Monthly sales targets</li>
+            <li>Incentives and bonuses</li>
+            <li>Customer relationship support</li>
+        </ul>
+    </div>
+
+    <!-- PAYOUT -->
+    <div class="plan-card highlight">
+        <h3>💰 Payout & Income Plan</h3>
+        <p>
+            Income is based on performance and consistency.
+            Payouts are transparent and timely.
+        </p>
+        <ul class="plan-list">
+            <li>Direct sales commission</li>
+            <li>Team performance bonus</li>
+            <li>Weekly & monthly incentives</li>
+            <li>Leadership income</li>
+            <li>Secure payout process</li>
+        </ul>
+    </div>
+
+</section>
+
+</body>
+</html>

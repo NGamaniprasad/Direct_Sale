@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Media data</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="{% static 'logo.png' %}">
+
+    <style>
+        /* General page styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7fc;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* Container for links to create a nice layout */
+        .container {
+            text-align: center;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            width: 60%;
+            max-width: 600px;
+
+        }
+
+        h1 {
+            color: #007BFF;
+            margin-bottom: 20px;
+        }
+
+        /* Style for the navigation links */
+        .nav-links {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            font-size: 18px;
+            color: white;
+            background-color: #007BFF;
+            padding: 12px 20px;
+            border-radius: 5px;
+            width: 220px;
+            display: inline-block;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .nav-links a:hover {
+            background-color: #0056b3;
+            transform: translateY(-3px);
+        }
+
+        .nav-links a:active {
+            transform: translateY(0);
+        }
+
+        /* Media queries for responsive design */
+        @media (max-width: 768px) {
+            .container {
+                width: 90%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-links a {
+                font-size: 16px;
+                width: 180px;
+                padding: 10px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Share with us! Your Memories💚</h1>
+    <div class="nav-links">
+        <a href="{% url 'upload_image' %}">Upload Images</a>
+        <a href="{% url 'upload_video' %}">Upload Videos</a>
+        <a href="{% url 'upload_file' %}">Upload Files</a>
+        <a href="{% url 'view_images' %}">View Uploaded Images</a>
+        <a href="{% url 'view_videos' %}">View Uploaded Videos</a>
+        <a href="{% url 'view_files' %}">View Uploaded Files</a>
+    </div>
+</div>
+
+</body>
+</html>

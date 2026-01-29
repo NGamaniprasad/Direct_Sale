@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="{% static 'logo.png' %}">
+    <title>Uploaded Files</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+        .file-list {
+            margin: 0 auto;
+            max-width: 800px;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .file-item {
+            background: #f4f4f4;
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.3s;
+        }
+        .file-item:hover {
+            background: #eaeaea;
+        }
+        .file-item h3 {
+            margin: 0;
+            font-size: 1.2rem;
+            color: #2980b9;
+        }
+        .file-item a {
+            text-decoration: none;
+            color: #007BFF;
+            font-weight: bold;
+        }
+        .file-item a:hover {
+            text-decoration: underline;
+        }
+        .delete-button {
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .delete-button:hover {
+            background-color: #c0392b;
+        }
+        .action-button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px; /* Space between buttons */
+            text-decoration: none; /* Remove underline */
+            display: inline-block; /* Make it behave like a button */
+            transition: background-color 0.3s; /* Smooth transition */
+        }
+        .action-button:hover {
+            background-color: #45a049; /* Darker green on hover */
+        }
+        .no-files {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #7f8c8d;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Uploaded Files</h2>
+
+<div class="file-list">
+    {% if files %}
+    {% for file in files %}
+    <div class="file-item">
+        <div>
+            <h3>{{ file.title3 }}</h3>
+            <a href="{{ file.file.url }}" download>Download {{ file.title3 }}</a>
+        </div>
+        <form method="post" action="{% url 'delete_file' file.id %}">
+            {% csrf_token %}
+            <button type="submit" class="delete-button">Delete</button>
+        </form>
+    </div>
+    {% endfor %}
+    {% else %}
+    <p class="no-files">No files uploaded yet.</p>
+    {% endif %}
+</div>
+
+<!-- Add Button -->
+<a href="{% url 'upload_file' %}" class="action-button">Add</a>
+
+<!-- Go Back Button -->
+<a href="{% url 'Media' %}" class="action-button">Go Back</a>
+
+</body>
+</html>

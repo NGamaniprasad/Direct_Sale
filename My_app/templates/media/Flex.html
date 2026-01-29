@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="{% static 'logo.png' %}">
+    <link rel="icon" type="image/png" href="static/logo.png">
+    <title>Ds Gallery Page</title>
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 40px;
+
+        }
+
+        h1 {
+            font-size: 36px;
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            color: #555;
+        }
+
+        .go-button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 18px;
+            cursor: pointer;
+            border-radius: 9px;
+            transition: background-color 0.3s;
+        }
+
+        .go-button:hover {
+            background-color: #0056b3;
+        }
+
+
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Welcome to DS Media Gallery</h1>
+    <p><b>Share your special moments with us!</b></p>
+    <p>Here you can see birthday parties and winning moments.😍🌹💖💥</p>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <a href="{% url 'Media' %}">
+        <button class="go-button">Share with Us!</button>
+    </a>
+</div>
+
+</body>
+</html>

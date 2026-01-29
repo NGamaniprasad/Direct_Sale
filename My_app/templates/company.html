@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Company Profile | Nurturing Way Private Limited</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon" type="image/png" href="{% static 'logo.png' %}">
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: #f4f7fb;
+            color: #333;
+            line-height: 1.7;
+        }
+
+        h1, h2, h3 {
+            font-weight: 600;
+        }
+
+        /* =========================
+           HEADER
+        ========================== */
+        .header {
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            color: #fff;
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 42px;
+            margin-bottom: 12px;
+        }
+
+        .header p {
+            max-width: 850px;
+            margin: auto;
+            font-size: 16px;
+            opacity: 0.9;
+        }
+
+        /* =========================
+           CONTAINER
+        ========================== */
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 60px 25px;
+        }
+
+        /* =========================
+           CARD
+        ========================== */
+        .card {
+            background: #fff;
+            border-radius: 16px;
+            padding: 35px;
+            margin-bottom: 40px;
+            box-shadow: 0 18px 40px rgba(0,0,0,0.08);
+        }
+
+        .card h2 {
+            font-size: 28px;
+            color: #2c5364;
+            margin-bottom: 15px;
+        }
+
+        .card p {
+            font-size: 15px;
+            color: #555;
+            margin-bottom: 10px;
+        }
+
+        /* =========================
+           INFO GRID
+        ========================== */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 25px;
+        }
+
+        .info-box {
+            background: #f8fafc;
+            padding: 25px;
+            border-radius: 14px;
+            border-left: 6px solid #2c5364;
+        }
+
+        .info-box h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: #2c5364;
+        }
+
+        .info-box p {
+            font-size: 14px;
+            color: #444;
+        }
+
+        /* =========================
+           HIGHLIGHT
+        ========================== */
+        .highlight {
+            background: linear-gradient(135deg, #203a43, #2c5364);
+            color: #fff;
+            border-radius: 16px;
+            padding: 35px;
+        }
+
+        .highlight h2 {
+            color: #fff;
+            margin-bottom: 15px;
+        }
+
+        .highlight p {
+            font-size: 15px;
+            opacity: 0.95;
+        }
+
+        /* =========================
+           LIST
+        ========================== */
+        ul {
+            list-style: none;
+            margin-top: 15px;
+        }
+
+        ul li {
+            padding-left: 25px;
+            position: relative;
+            margin-bottom: 12px;
+            font-size: 14px;
+        }
+
+        ul li::before {
+            content: "✔";
+            position: absolute;
+            left: 0;
+            color: #2c5364;
+            font-weight: bold;
+        }
+
+        /* =========================
+           RESPONSIVE
+        ========================== */
+        @media(max-width: 768px) {
+            .header h1 {
+                font-size: 30px;
+            }
+
+            .container {
+                padding: 40px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<section class="header">
+    <h1>Nurturing Way Private Limited</h1>
+    <p>
+        A trusted direct sale and distribution company committed to empowering individuals,
+        creating sustainable income opportunities, and delivering quality products across India.
+    </p>
+</section>
+
+<!-- CONTENT -->
+<section class="container">
+
+    <!-- COMPANY OVERVIEW -->
+    <div class="card">
+        <h2>Company Overview</h2>
+        <p>
+            <strong>Nurturing Way Private Limited</strong> is a professionally managed direct sale company
+            operating under a transparent and ethical business model.
+            We focus on nurturing entrepreneurs by providing training, technology,
+            and growth-oriented opportunities.
+        </p>
+        <p>
+            Our official online platform is
+            <strong><a href="https://svekart.com" target="_blank">www.svekart.com</a></strong>,
+            where associates and customers can explore our products and services.
+        </p>
+    </div>
+
+    <!-- COMPANY DETAILS -->
+    <div class="card">
+        <h2>Company Registration Details</h2>
+
+        <div class="info-grid">
+            <div class="info-box">
+                <h3>Legal Name</h3>
+                <p>Nurturing Way Private Limited</p>
+            </div>
+
+            <div class="info-box">
+                <h3>CIN Number</h3>
+                <p>U47912UP2024PTC209548</p>
+            </div>
+
+            <div class="info-box">
+                <h3>Official Website</h3>
+                <p>www.svekart.com</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- HEAD OFFICE -->
+    <div class="card">
+        <h2>Head Office Address</h2>
+        <p>
+            <strong>Nurturing Way Private Limited</strong><br>
+            CIN: U47912UP2024PTC209548<br>
+            LG 38, Gaur City Centre,<br>
+            Sector 4, Greater Noida,<br>
+            Gautam Budha Nagar,<br>
+            Uttar Pradesh – 201301
+        </p>
+    </div>
+
+    <!-- BRANCH OFFICE -->
+    <div class="card">
+        <h2>Branch Office – Andhra Pradesh</h2>
+        <p>
+            <strong>Nurturing Way Private Limited</strong><br>
+            3-241, CVN Reddy Complex,<br>
+            CTM Road, Madanapalle – Branch,<br>
+            Annamayya District,<br>
+            Andhra Pradesh – 517325
+        </p>
+    </div>
+
+    <!-- BRANCH NETWORK -->
+    <div class="highlight">
+        <h2>Our Branch Network</h2>
+        <p>
+            We are rapidly expanding our business presence across South India.
+            Currently, we operate with:
+        </p>
+        <ul>
+            <li>10 active branches across Andhra Pradesh and Telangana</li>
+            <li>Dedicated training and support offices</li>
+            <li>Professional sales and distribution teams</li>
+            <li>Strong logistics and customer support network</li>
+        </ul>
+    </div>
+
+</section>
+
+</body>
+</html>

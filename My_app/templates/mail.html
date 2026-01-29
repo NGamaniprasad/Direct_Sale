@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html>
+<link rel="icon" type="image/png" href="{% static 'logo.png' %}">
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+    <title>Send Mail</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f8;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            background: #ffffff;
+            padding: 30px;
+            width: 400px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .alert-success {
+            background-color: #e6fffa;
+            color: #047857;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .alert-error {
+            background-color: #fee2e2;
+            color: #b91c1c;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            margin-bottom: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #2563eb;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #1e40af;
+        }
+
+        .back-btn {
+            display: block;
+            margin-top: 15px;
+            text-align: center;
+            text-decoration: none;
+            color: #2563eb;
+            font-weight: bold;
+        }
+
+        .back-btn:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <h2>Send Email</h2>
+
+    {% if success %}
+        <div class="alert-success">{{ success }}</div>
+    {% endif %}
+
+    {% if error %}
+        <div class="alert-error">{{ error }}</div>
+    {% endif %}
+
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <label>From Email (Reply-To)</label>
+        <input type="email" name="from_email" placeholder="your@email.com" required>
+
+        <label>To Email</label>
+        <input type="email" name="to_email" placeholder="receiver@email.com" required>
+
+        <label>Subject</label>
+        <input type="text" name="subject" required>
+
+        <label>Message</label>
+        <textarea name="message" rows="4" required></textarea>
+
+        <label>Attachment (optional)</label>
+        <input type="file" name="attachment">
+
+        <button type="submit">Send Email</button>
+
+        <a href="{% url 'Flex' %}" class="back-btn">← Back to Home</a>
+    </form>
+
+</div>
+
+</body>
+</html>
