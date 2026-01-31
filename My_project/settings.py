@@ -146,7 +146,7 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
 EMAIL_HOST_USER = 'grownbyaigp@gmail.com'
-EMAIL_HOST_PASSWORD = 'agblkeblhtorwrnv'
+EMAIL_HOST_PASSWORD = ''
 
 # DEFAULT_FROM_EMAIL = 'Nurturing Way <yourgmail@gmail.com>'
 
